@@ -10,12 +10,12 @@ public class OrderTestUnit {
         katalog.registerProduct(new Product("1","Pizza Meat lover",40));
         katalog.registerProduct(new Product("2","Salad",10));
         katalog.printAllProduct();
-        katalog.findProductById("1");
+        System.out.println(katalog.findProductById("2"));
         //Usecase Order
-//        Date d = GregorianCalendar.getInstance().getTime();
-//        Order order = new Order(shop,d,"INV-2301");
-//        order.addItem(new Item(katalog.findProductById("1"),3));
-//        order.addItem(new Item(katalog.findProductById("2"),10));
-//        order.checkout();
+        Date d = GregorianCalendar.getInstance().getTime();
+        Order order = new Order("INV-2301",d, shop);
+        order.addItem(new Item(katalog.findProductById("1"),3));
+        order.addItem(new Item(katalog.findProductById("2"),10));
+        order.checkout();
     }
 }

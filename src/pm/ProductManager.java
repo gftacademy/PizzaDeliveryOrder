@@ -4,11 +4,9 @@ import entities.Shop;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class ProductManager {
     private List<Product> productList = new ArrayList<>();
     public ProductManager() {
-        productList.add(new Product("1","1","1",1));
     }
     public void printAllProduct() {
         for(Product p : productList){

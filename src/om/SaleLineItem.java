@@ -1,17 +1,17 @@
 package om;
 
-import entities.Product;
+import pm.Product;
 
-public class Item {
+public class SaleLineItem {
     private final Product product;
-    private final int jumlah;
+    private final int quantity;
 
-    public Item(Product product, int jumlah) {
+    public SaleLineItem(Product product, int jumlah) {
         this.product = product;
-        this.jumlah = jumlah;
+        this.quantity = jumlah;
     }
-    public int getJumlah() {
-        return jumlah;
+    public int getQuantity() {
+        return quantity;
     }
     public Product getProduct() {
         return product;
@@ -20,7 +20,7 @@ public class Item {
     public String toString() {
         return "Item{" +
                 "product=" + product +
-                ", jumlah=" + jumlah +
+                ", jumlah=" + quantity +
                 '}';
     }
 }

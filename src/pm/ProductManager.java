@@ -1,21 +1,22 @@
 package pm;
 
-import entities.Product;
 import entities.Shop;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Katalog {
-    private Shop shop;
+public class ProductManager {
     private List<Product> productList = new ArrayList<>();
-    public Katalog(Shop shop) {
-        this.shop = shop;
+    public ProductManager() {
+        productList.add(new Product("1","1","1",1));
     }
     public void printAllProduct() {
         for(Product p : productList){
             System.out.println(p);
         }
+    }
+    public List<Product> getProductList() {
+        return productList;
     }
     public void registerProduct(Product product) {
         productList.add(product);
@@ -25,5 +26,8 @@ public class Katalog {
             if(p.getId().equals(id)) return p;
         }
         return null;
+    }
+    public void setProductList(List<Product> productList) {
+        this.productList = productList;
     }
 }

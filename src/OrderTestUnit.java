@@ -1,8 +1,8 @@
-import entities.Product;
+import pm.Product;
 import entities.Shop;
-import om.Item;
+import om.SaleLineItem;
 import om.Order;
-import pm.Katalog;
+import pm.ProductManager;
 
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -12,16 +12,16 @@ public class OrderTestUnit {
         //Master
         Shop shop = new Shop("PDO Shop");
         //Usecase Register Product
-        Katalog katalog = new Katalog(shop);
-        katalog.registerProduct(new Product("1","Pizza Meat lover",40,"Pizza"));
-        katalog.registerProduct(new Product("2","Salad",10,"Pizza"));
-        katalog.printAllProduct();
-        System.out.println(katalog.findProductById("2"));
+        ProductManager productManager = new ProductManager();
+        productManager.registerProduct(new Product("1","Pizza Meat lover","Pizza",40));
+        productManager.registerProduct(new Product("2","Salad","Pizza",10));
+        //productManager.printAllProduct();
+        //System.out.println(productManager.findProductById("2"));
         //Usecase Order
         Date d = GregorianCalendar.getInstance().getTime();
         Order order = new Order("INV-2301",d, shop);
-        order.addItem(new Item(katalog.findProductById("1"),3));
-        order.addItem(new Item(katalog.findProductById("2"),10));
+        order.addItem(new SaleLineItem(productManager.findProductById("1"),3));
+        order.addItem(new SaleLineItem(productManager.findProductById("2"),10));
         order.checkout();
     }
 }

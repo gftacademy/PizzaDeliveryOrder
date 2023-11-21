@@ -10,20 +10,20 @@ public class Order {
     private String invoice;
     private Date orderDate;
     private Shop shop;
-    private List<Item> items = new ArrayList<>();
+    private List<SaleLineItem> saleLineItems = new ArrayList<>();
 
     public Order(String invoice, Date orderDate, Shop shop) {
         this.invoice = invoice;
         this.orderDate = orderDate;
         this.shop = shop;
     }
-    public void addItem(Item item) {
-        items.add(item);
+    public void addItem(SaleLineItem saleLineItem) {
+        saleLineItems.add(saleLineItem);
     }
 
     public void checkout() {
-        for(Item item : items){
-            System.out.println(item);
+        for(SaleLineItem saleLineItem : saleLineItems){
+            System.out.println(saleLineItem);
         }
     }
 }

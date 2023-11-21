@@ -1,3 +1,8 @@
+package pm;
+
+import entities.Product;
+import entities.Shop;
+
 import java.util.ArrayList;
 import java.util.List;
 

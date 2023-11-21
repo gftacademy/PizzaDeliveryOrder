@@ -1,3 +1,7 @@
+package om;
+
+import entities.Product;
+
 public class Item {
     private final Product product;
     private final int jumlah;
@@ -11,5 +15,12 @@ public class Item {
     }
     public Product getProduct() {
         return product;
+    }
+    @Override
+    public String toString() {
+        return "Item{" +
+                "product=" + product +
+                ", jumlah=" + jumlah +
+                '}';
     }
 }

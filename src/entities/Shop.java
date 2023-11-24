@@ -20,4 +20,10 @@ public class Shop {
         System.out.println("OM Size\t: "+om.getOrderList().size());
         System.out.println("-------------------");
     }
+    public OrderManager getOm() {
+        return om;
+    }
+    public String getName() {
+        return name;
+    }
 }

@@ -1,6 +1,10 @@
 import desktop.views.MainFrame;
 import entities.Shop;
+import om.Order;
+import om.SaleLineItem;
 import utilities.FileServices;
+
+import java.util.GregorianCalendar;
 
 public class Apps {
     private static Shop shop;
@@ -21,5 +25,11 @@ public class Apps {
             shop.getPm().setProductList(FileServices.readProductFile(DEFAULT_DATA_PRODUCT));
             shop.info();
         }
+        //Order test Unit
+        Order order = new Order("1234", GregorianCalendar.getInstance().getTime(),shop);
+        order.addItem(new SaleLineItem(shop.getPm().findProductById("SKU6645"),2));
+        order.addItem(new SaleLineItem(shop.getPm().findProductById("SKU5643"),10));
+        order.checkout();
+        shop.info();
     }
 }

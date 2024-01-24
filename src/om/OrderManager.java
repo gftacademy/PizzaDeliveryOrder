@@ -8,4 +8,7 @@ public class OrderManager {
     public List<Order> getOrderList() {
         return orderList;
     }
+    public void addOrder(Order order){
+        orderList.add(order);
+    }
 }

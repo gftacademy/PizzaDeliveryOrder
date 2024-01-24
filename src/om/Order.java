@@ -25,5 +25,19 @@ public class Order {
         for(SaleLineItem saleLineItem : saleLineItems){
             System.out.println(saleLineItem);
         }
+        shop.getOm().addOrder(this);
+    }
+
+    public double getTotal(){
+        double total = 0;
+        for(SaleLineItem sli : saleLineItems){
+            total += sli.getProduct().getPrice() * sli.getQuantity();
+        }
+        return total;
+    }
+
+
+    public List<SaleLineItem> getSaleLineItems() {
+        return saleLineItems;
     }
 }

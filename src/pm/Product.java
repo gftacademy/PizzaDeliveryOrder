@@ -1,6 +1,11 @@
 package pm;
 
-public class Product {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class Product implements Serializable {
+    @Serial
+    private static final long serialVersionUID = -990356447919430071L;
     private String id, name, category;
     private int price;
     public Product(String id, String name, String category, int price) {
@@ -21,11 +26,13 @@ public class Product {
     public String getCategory() {
         return category;
     }
+
     @Override
     public String toString() {
         return "Product{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
                 ", price=" + price +
                 '}';
     }

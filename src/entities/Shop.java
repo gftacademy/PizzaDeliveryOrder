@@ -3,7 +3,9 @@ package entities;
 import om.OrderManager;
 import pm.ProductManager;
 
-public class Shop {
+import java.io.Serializable;
+
+public class Shop implements Serializable {
     private String name;
     private ProductManager pm = new ProductManager();
     private OrderManager om = new OrderManager();

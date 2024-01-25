@@ -2,7 +2,12 @@ package om;
 
 import pm.Product;
 
-public class SaleLineItem {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class SaleLineItem implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 3943243562936946334L;
     private final Product product;
     private final int quantity;
 
@@ -22,5 +27,9 @@ public class SaleLineItem {
                 "product=" + product +
                 ", jumlah=" + quantity +
                 '}';
+    }
+
+    public int getSubTotal() {
+        return quantity * getProduct().getPrice();
     }
 }

@@ -1,12 +1,18 @@
 package utilities;
 
 import pm.Product;
-import java.io.File;
+
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class FileServices {
+    public static void saveObjectToFile (Object obj, String filename) throws IOException {
+        FileOutputStream fileOutputStream = new FileOutputStream(filename);
+        ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
+        objectOutputStream.writeObject(obj);
+    }
     public static List<Product> readProductFile(String filename){
         try{
             List<Product> products = new ArrayList<>();
@@ -19,7 +25,6 @@ public class FileServices {
             }
             return products;
         }catch (Exception ex){
-
         }
         return null;
     }

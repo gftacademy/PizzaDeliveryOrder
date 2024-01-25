@@ -16,5 +16,7 @@ public class PMController {
     public List<Product> getAllProducts(){
         return pmModel.getProductList();
     }
-
+    public ProductManager getPmModel() {
+        return pmModel;
+    }
 }

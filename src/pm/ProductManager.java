@@ -2,9 +2,13 @@ package pm;
 
 import entities.Shop;
 
+import java.io.Serial;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-public class ProductManager {
+public class ProductManager implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 2292678315472879958L;
     private List<Product> productList = new ArrayList<>();
     public ProductManager() {
     }

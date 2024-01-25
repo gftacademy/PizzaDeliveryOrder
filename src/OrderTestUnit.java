@@ -19,9 +19,9 @@ public class OrderTestUnit {
         //System.out.println(productManager.findProductById("2"));
         //Usecase Order
         Date d = GregorianCalendar.getInstance().getTime();
-        Order order = new Order("INV-2301",d, shop);
-        order.addItem(new SaleLineItem(productManager.findProductById("1"),3));
-        order.addItem(new SaleLineItem(productManager.findProductById("2"),10));
-        order.checkout();
+//        Order order = new Order("INV-2301",d, shop);
+//        order.addItem(new SaleLineItem(productManager.findProductById("1"),3));
+//        order.addItem(new SaleLineItem(productManager.findProductById("2"),10));
+//        order.checkout();
     }
 }

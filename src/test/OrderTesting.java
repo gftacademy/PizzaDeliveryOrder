@@ -2,21 +2,19 @@ package test;
 import entities.Shop;
 import om.SaleLineItem;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
 import pm.Product;
 import om.Order;
-
 import java.util.GregorianCalendar;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 public class OrderTesting {
     private static Shop shop = new Shop("GFT Store");
     private static Product product = new Product("1","Pizza Meat Lover","Pizza",34);
     @Test
-    public void addSaleLineItemTest(){
-        Order order = new om.Order("123213",GregorianCalendar.getInstance().getTime(),shop);
+    @DisplayName(value = "Pengujian chart empty, 2 items & check total")
+    public void add2SaleLineItemTest(){
+        Order order = new om.Order();
         Assertions.assertTrue(order.getSaleLineItems().isEmpty());
         order.addItem(new SaleLineItem(product,1));
         Product p = new Product("2","Salad Buah","Food",4);

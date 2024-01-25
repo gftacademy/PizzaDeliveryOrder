@@ -7,4 +7,7 @@ public class OMController {
     public OMController(OrderManager omModel) {
         this.omModel = omModel;
     }
+    public OrderManager getOmModel() {
+        return omModel;
+    }
 }

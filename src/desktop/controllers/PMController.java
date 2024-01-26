@@ -19,4 +19,7 @@ public class PMController {
     public ProductManager getPmModel() {
         return pmModel;
     }
+    public void setPmModel(ProductManager pmModel) {
+        this.pmModel = pmModel;
+    }
 }

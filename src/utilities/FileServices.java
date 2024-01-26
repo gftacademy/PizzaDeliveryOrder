@@ -13,6 +13,11 @@ public class FileServices {
         ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);
         objectOutputStream.writeObject(obj);
     }
+    public static Object readObjectFromFile(String filename) throws IOException, ClassNotFoundException {
+        FileInputStream fileInputStream = new FileInputStream(filename);
+        ObjectInputStream objectInputStream = new ObjectInputStream(fileInputStream);
+        return objectInputStream.readObject();
+    }
     public static List<Product> readProductFile(String filename){
         try{
             List<Product> products = new ArrayList<>();

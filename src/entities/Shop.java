@@ -12,6 +12,8 @@ public class Shop implements Serializable {
     public Shop(String name) {
         this.name = name;
     }
+    public Shop() {
+    }
     public ProductManager getPm() {
         return pm;
     }

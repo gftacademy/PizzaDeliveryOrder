@@ -7,7 +7,7 @@
     <properties/>
     <border type="none"/>
     <children>
-      <grid id="6f9bd" binding="bottomPanel" layout-manager="GridLayoutManager" row-count="1" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="6f9bd" binding="bottomPanel" layout-manager="GridLayoutManager" row-count="1" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="15" bottom="10" right="15"/>
         <constraints border-constraint="South"/>
         <properties/>
@@ -15,10 +15,10 @@
         <children>
           <component id="b7e39" class="javax.swing.JLabel" binding="clockLabel">
             <constraints>
-              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="Label"/>
+              <text value="Clock"/>
             </properties>
           </component>
           <hspacer id="88abc">
@@ -32,8 +32,22 @@
             </constraints>
             <properties>
               <foreground color="-14914769"/>
-              <text value="Label"/>
+              <text value="Message"/>
             </properties>
+          </component>
+          <component id="6675f" class="javax.swing.JButton" binding="actionButton">
+            <constraints>
+              <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Do"/>
+            </properties>
+          </component>
+          <component id="3a74d" class="javax.swing.JComboBox" binding="cbDataAction">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties/>
           </component>
         </children>
       </grid>

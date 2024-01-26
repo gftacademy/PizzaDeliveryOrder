@@ -10,4 +10,7 @@ public class OMController {
     public OrderManager getOmModel() {
         return omModel;
     }
+    public void setOmModel(OrderManager omModel) {
+        this.omModel = omModel;
+    }
 }

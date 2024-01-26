@@ -1,7 +1,5 @@
 package pm;
 
-import java.io.Serializable;
-
 public enum ProductCategory {
     Pizza,Pasta_Rice,Drink,Appetizer,Accessories;
     @Override

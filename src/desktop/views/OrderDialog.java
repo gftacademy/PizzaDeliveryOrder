@@ -45,7 +45,9 @@ public class OrderDialog extends JDialog {
         checkOutButton.addActionListener(e -> {
             order.setOrderDate(GregorianCalendar.getInstance().getTime());
             parent.getOmController().getOmModel().addOrder(order);
+            parent.showOrderTable();
             parent.sendMessage(order.getInvoice()+" berhasil disimpan -> "+parent.getOmController().getOmModel().getOrderList().size());
+            dispose();
         });
     }
     private String getInvoice(){

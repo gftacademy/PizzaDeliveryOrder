@@ -84,6 +84,11 @@ public class MainFrame extends JFrame {
                     .filter(product -> product.getId().equals(skuCode))
                     .findAny();
             sendMessage(p.toString());
+            if(p.isEmpty()){
+                sendMessage("Product "+skuCode+ " tidak ditemukan.");
+            }else{
+                //Detail Product
+            }
         });
         addProductButton.addActionListener(e -> {
         //open Register Product Dialog

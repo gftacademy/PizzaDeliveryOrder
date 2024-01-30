@@ -9,6 +9,7 @@ public enum ProductCategory {
             case Pasta_Rice: return "Pasta & Rice";
             case Drink: return "Drink";
             case Appetizer: return "Appetizer";
+            case Accessories: return "Accessories";
             default: return null;
         }
     }

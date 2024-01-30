@@ -1,10 +1,13 @@
 package desktop.views;
 
+import desktop.Apps;
 import pm.ProductCategory;
 import pm.Product;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
 
 public class RegisterProductDialog extends JDialog {
     private JPanel contentPane;
@@ -12,25 +15,49 @@ public class RegisterProductDialog extends JDialog {
     private JButton buttonCancel;
     private JTextField skuCodeTxt;
     private JTextField nameTxt;
-    private JComboBox categoryCbx;
+    private JComboBox<ProductCategory> categoryCbx;
     private JTextField priceTxt;
+    private JButton uploadButton;
+    private JLabel imageLabel;
     private MainFrame parent;
+    private ImageIcon icon150;
 
     public RegisterProductDialog(MainFrame mainFrame) {
         this.parent = mainFrame;
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
-        setSize(300,400);
+        setSize(350,450);
         setLocationRelativeTo(this);
         //comboBox
-        categoryCbx.setModel(new DefaultComboBoxModel(ProductCategory.values()));
+        categoryCbx.setModel(new DefaultComboBoxModel<>(ProductCategory.values()));
+        //ImageIcon
+        imageLabel.setSize(150,150);
+        imageLabel.setText("");
+        imageLabel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
+        ImageIcon imageIcon = new ImageIcon((getClass().getClassLoader().getResource(Apps.DEFAULT_NOIMAGE_ICON)));
+        Image image = imageIcon.getImage().getScaledInstance(150,150,Image.SCALE_SMOOTH);
+        imageLabel.setIcon(new ImageIcon(image));
         buttonOK.addActionListener(e -> {
-            Product product = new Product(skuCodeTxt.getText(), nameTxt.getText(),categoryCbx.getSelectedItem().toString()
-            ,Integer.parseInt(priceTxt.getText()));
-            parent.getPmController().getPmModel().registerProduct(product);
+            Product product = new Product();
+            product.setId(skuCodeTxt.getText());
+            product.setName(nameTxt.getText());
+            product.setCategory(categoryCbx.getSelectedItem().toString());
+            product.setPrice(Integer.parseInt(priceTxt.getText()));
+            product.setImage(icon150);
+            parent.getPmController().registerProduct(product);
             parent.sendMessage(product+ "telah ditambahkan");
             dispose();
+        });
+        uploadButton.addActionListener(e -> {
+            JFileChooser chooser = new JFileChooser();
+            chooser.showOpenDialog(this);
+            File file = chooser.getSelectedFile();
+            if (file != null){
+                ImageIcon icon = new ImageIcon(file.getAbsolutePath());
+                icon150 = new ImageIcon(icon.getImage().getScaledInstance(150,150,Image.SCALE_SMOOTH));
+                imageLabel.setIcon(icon150);
+            }
         });
 
         buttonCancel.addActionListener(e -> dispose());

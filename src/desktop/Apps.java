@@ -14,6 +14,7 @@ public class Apps {
     private final static String DEFAULT_SHOP = "Pizza Store Delivery Order 24/7";
     private final static String DEFAULT_DATA_PRODUCT = "src/data/products.txt";
     public final static String DEFAULT_OBJECT_FILENAME = "src/data/shop.pdo";
+    public final static String DEFAULT_NOIMAGE_ICON = "res/images/no_image.png";
     private static Shop shop;
     private static MainFrame mainFrame;
     public static void main(String[] args) throws IOException, ClassNotFoundException {

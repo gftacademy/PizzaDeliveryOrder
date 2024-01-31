@@ -88,6 +88,8 @@ public class MainFrame extends JFrame {
                 sendMessage("Product "+skuCode+ " tidak ditemukan.");
             }else{
                 //Detail Product
+                DetailProductDialog dialog = new DetailProductDialog(this,p.get());
+                dialog.setVisible(true);
             }
         });
         addProductButton.addActionListener(e -> {

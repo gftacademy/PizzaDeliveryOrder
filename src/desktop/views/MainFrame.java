@@ -38,6 +38,7 @@ public class MainFrame extends JFrame {
     private JTable orderTable;
     private JButton actionButton;
     private JComboBox cbDataAction;
+    private JButton removeProductButton;
 
     public MainFrame(Shop shop){
         this.shop = shop;
@@ -45,11 +46,11 @@ public class MainFrame extends JFrame {
         this.omController = new OMController(shop.getOm());
         initComponents();
         //listener
-        printAllProductButton.addActionListener(e -> {
-           for (Product p : pmController.getAllProducts()){
-               productDisplayArea.append(p+"\n");
-           }
-        });
+//        printAllProductButton.addActionListener(e -> {
+//           for (Product p : pmController.getAllProducts()){
+//               productDisplayArea.append(p+"\n");
+//           }
+//        });
     }
     public Shop getShop() {
         return shop;
@@ -73,9 +74,22 @@ public class MainFrame extends JFrame {
         sendMessage("PDO Apps Ready");
         //listener untuk modul product manager
         printAllProductButton.addActionListener(e -> {
+            productDisplayArea.setText("");
             for(Product product : pmController.getAllProducts()){
                 productDisplayArea.append(product+"\n");
             }
+        });
+        removeProductButton.addActionListener(e -> {
+            String skuCode = JOptionPane.showInputDialog("Masukkan SKUCODE ?");
+            Optional<Product> p = pmController.getPmModel().getProductList()
+                    .stream()
+                    .filter(product -> product.getId().equals(skuCode))
+                    .findAny();
+            //sendMessage(p+"");
+            //pmController.getAllProducts().removeIf(product -> product.getId()==skuCode);
+            sendMessage(p.getClass().toString());
+            if(shop.getPm().getProductList().remove(p.get()))
+            sendMessage(skuCode+" berhasil dihapus");
         });
         findAProductButton.addActionListener(e -> {
             String skuCode = JOptionPane.showInputDialog("Masukkan SKUCODE ?");
@@ -83,7 +97,7 @@ public class MainFrame extends JFrame {
                     .stream()
                     .filter(product -> product.getId().equals(skuCode))
                     .findAny();
-            sendMessage(p.toString());
+            sendMessage("Product "+skuCode+ " ditemukan.");
             if(p.isEmpty()){
                 sendMessage("Product "+skuCode+ " tidak ditemukan.");
             }else{

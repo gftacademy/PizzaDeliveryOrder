@@ -20,7 +20,7 @@ public class RegisterProductDialog extends JDialog {
     private JButton uploadButton;
     private JLabel imageLabel;
     private MainFrame parent;
-    private ImageIcon icon150;
+    private ImageIcon icon100;
 
     public RegisterProductDialog(MainFrame mainFrame) {
         this.parent = mainFrame;
@@ -32,11 +32,11 @@ public class RegisterProductDialog extends JDialog {
         //comboBox
         categoryCbx.setModel(new DefaultComboBoxModel<>(ProductCategory.values()));
         //ImageIcon
-        imageLabel.setSize(150,150);
+        imageLabel.setSize(100,100);
         imageLabel.setText("");
         imageLabel.setBorder(BorderFactory.createLineBorder(Color.GRAY));
         ImageIcon imageIcon = new ImageIcon((getClass().getClassLoader().getResource(Apps.DEFAULT_NOIMAGE_ICON)));
-        Image image = imageIcon.getImage().getScaledInstance(150,150,Image.SCALE_SMOOTH);
+        Image image = imageIcon.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH);
         imageLabel.setIcon(new ImageIcon(image));
         buttonOK.addActionListener(e -> {
             Product product = new Product();
@@ -44,7 +44,7 @@ public class RegisterProductDialog extends JDialog {
             product.setName(nameTxt.getText());
             product.setCategory(categoryCbx.getSelectedItem().toString());
             product.setPrice(Integer.parseInt(priceTxt.getText()));
-            product.setImage(icon150);
+            product.setImage(icon100);
             parent.getPmController().registerProduct(product);
             parent.sendMessage(product+ "telah ditambahkan");
             dispose();
@@ -55,8 +55,8 @@ public class RegisterProductDialog extends JDialog {
             File file = chooser.getSelectedFile();
             if (file != null){
                 ImageIcon icon = new ImageIcon(file.getAbsolutePath());
-                icon150 = new ImageIcon(icon.getImage().getScaledInstance(150,150,Image.SCALE_SMOOTH));
-                imageLabel.setIcon(icon150);
+                icon100 = new ImageIcon(icon.getImage().getScaledInstance(100,100,Image.SCALE_SMOOTH));
+                imageLabel.setIcon(icon100);
             }
         });
 

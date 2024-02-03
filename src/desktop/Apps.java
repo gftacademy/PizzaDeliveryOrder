@@ -32,7 +32,6 @@ public class Apps {
             if(shop == null ) {
                 shop = new Shop(DEFAULT_SHOP);
                 shop.getPm().setProductList(FileServices.readProductFile(DEFAULT_DATA_PRODUCT));
-                JOptionPane.showMessageDialog(null, "shop null");
             }
         }
         mainFrame = new MainFrame(shop);

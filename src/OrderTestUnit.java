@@ -13,15 +13,15 @@ public class OrderTestUnit {
         Shop shop = new Shop("PDO Shop");
         //Usecase Register Product
         ProductManager productManager = new ProductManager();
+        Product p = new Product("2","Salad","Pizza",10);
         productManager.registerProduct(new Product("1","Pizza Meat lover","Pizza",40));
-        productManager.registerProduct(new Product("2","Salad","Pizza",10));
-        //productManager.printAllProduct();
+        productManager.registerProduct(p);
+        productManager.getProductList().remove(p);
+        productManager.printAllProduct();
         //System.out.println(productManager.findProductById("2"));
         //Usecase Order
         Date d = GregorianCalendar.getInstance().getTime();
-//        Order order = new Order("INV-2301",d, shop);
-//        order.addItem(new SaleLineItem(productManager.findProductById("1"),3));
-//        order.addItem(new SaleLineItem(productManager.findProductById("2"),10));
-//        order.checkout();
+
+
     }
 }
